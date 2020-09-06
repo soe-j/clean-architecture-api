@@ -13,7 +13,7 @@ func main() {
 
 	s := usecases.Service{}
 
-	r.GET("/users", h.JSON(s.Index()))
+	r.GET("/users", h.JSON(s.User.Index()))
 
 	r.Run()
 }
