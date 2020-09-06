@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/soe-j/clean-architecture-api/src/drivers"
+	"github.com/soe-j/clean-architecture-api/src/usecases"
 )
 
 func main() {
@@ -10,7 +11,9 @@ func main() {
 
 	h := drivers.GinHandler{}
 
-	r.GET("/users", h.JSON())
+	s := usecases.Service{}
+
+	r.GET("/users", h.JSON(s.Index()))
 
 	r.Run()
 }
