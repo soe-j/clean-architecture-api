@@ -1,9 +1,26 @@
 version: "3.4"
 services:
-  api:
+  run:
     build:
       context: .
+      target: run
     ports:
       - "8080:8080"
+    volumes:
+      - .:/go/src/app
+
+  air:
+    build:
+      context: .
+      target: air
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/go/src/app
+
+  lint:
+    build:
+      context: .
+      target: lint
     volumes:
       - .:/go/src/app
