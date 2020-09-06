@@ -8,9 +8,7 @@ import (
 
 func main() {
 	r := gin.Default()
-
 	h := drivers.GinHandler{}
-
 	s := usecases.Service{}
 
 	r.GET("/users", h.JSON(s.User.Index()))
